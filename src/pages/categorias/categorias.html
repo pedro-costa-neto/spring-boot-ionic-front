@@ -9,9 +9,9 @@
 
 <ion-content padding>
 
-<p>
-  Pagina de categorias
-
-</p>
-
+  <ion-list>
+    <button ion-item *ngFor="let item of itens">
+      <ion-label>{{ item.nome }}</ion-label>
+    </button>
+  </ion-list>
 </ion-content>
