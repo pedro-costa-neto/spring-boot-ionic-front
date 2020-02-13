@@ -5,10 +5,12 @@ import { API_CONFIG } from "../config/api.config";
 import { Platform } from "ionic-angular";
 import { LocalUser } from "../models/local_user";
 import { StorageService } from "./storage.service";
+import { JwtHelper } from "angular2-jwt";
 
 @Injectable()
 export class AuthService {
 
+    jwtHelper: JwtHelper = new JwtHelper();
     basePath = "/serverapi";
 
     constructor(
@@ -35,7 +37,8 @@ export class AuthService {
     successfullLogin(authorizationValue: String) {
         let token = authorizationValue.substring(7);
         let user : LocalUser = {
-            token: token
+            token: token,
+            email: this.jwtHelper.decodeToken(token).sub
         };
         
         this.storageServer.setLocalUser(user);
