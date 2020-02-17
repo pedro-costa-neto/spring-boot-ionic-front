@@ -11,7 +11,7 @@ import { JwtHelper } from "angular2-jwt";
 export class AuthService {
 
     jwtHelper: JwtHelper = new JwtHelper();
-    basePath = "/serverapi";
+    basePath = API_CONFIG.baseUrlProxy;
 
     constructor(
         public http: HttpClient,
