@@ -15,8 +15,8 @@ export class AuthService {
 
     constructor(
         public http: HttpClient,
-        private _platform: Platform,
-        public storageServer: StorageService
+        public storageServer: StorageService,
+        private _platform: Platform
         ){
 
             if(this._platform.is("cordova")){

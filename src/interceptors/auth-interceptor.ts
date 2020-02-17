@@ -24,6 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
         let n = this.basePath.length;
         let requestToApi = req.url.substr(0, n) == this.basePath;
 
+        console.log(localUser && requestToApi, localUser, req.url.substr(0, n));
         if(localUser && requestToApi){
             const authReq = req.clone({headers: req.headers.set('Authorization', `Bearer ${localUser.token}`)});
             return next.handle(authReq);
