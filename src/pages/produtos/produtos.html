@@ -3,15 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>categorias</ion-title>
+    <ion-title>produtos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
   <ion-list>
-    <button ion-item *ngFor="let item of itens" (click)="showProdutos()">
-      <ion-label>{{ item.nome }}</ion-label>
+    <button ion-item *ngFor="let item of items">
+      <h2>{{ item.nome }}</h2>
+      <p>{{ item.preco | currency }}</p>
     </button>
   </ion-list>
 </ion-content>
