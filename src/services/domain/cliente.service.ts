@@ -26,4 +26,15 @@ export class ClienteService {
 
         return this.http.get<ClienteDTO>(`${this.basePath}/clientes/email?value=${email}`);
     }
+
+    insert(obj: ClienteDTO) {
+        return this.http.post(
+            `${this.basePath}/clientes`,
+            obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
 }
