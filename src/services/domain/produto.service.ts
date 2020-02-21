@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { Platform } from 'ionic-angular';
 
 import { API_CONFIG } from '../../config/api.config';
+import { ProdutoDTO } from '../../models/produto.dto';
 
 @Injectable()
 export class ProdutoService {
@@ -22,5 +23,9 @@ export class ProdutoService {
 
     findByCategoria(categoria_id: string)  {
         return this.http.get(`${this.basePath}/produtos/?categorias=${categoria_id}`);
+    }
+
+    findById(produto_id: string)  {
+        return this.http.get<ProdutoDTO>(`${this.basePath}/produtos/${produto_id}`);
     }
 }
