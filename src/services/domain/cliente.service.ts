@@ -22,9 +22,9 @@ export class ClienteService {
             }
     }
 
-    findbyEmail(email: String) : Observable<ClienteDTO>{
+    findbyEmail(email: String) {
 
-        return this.http.get<ClienteDTO>(`${this.basePath}/clientes/email?value=${email}`);
+        return this.http.get(`${this.basePath}/clientes/email?value=${email}`);
     }
 
     insert(obj: ClienteDTO) {
