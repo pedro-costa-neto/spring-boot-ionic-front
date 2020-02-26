@@ -6,6 +6,7 @@ import { Platform } from "ionic-angular";
 import { LocalUser } from "../models/local_user";
 import { StorageService } from "./storage.service";
 import { JwtHelper } from "angular2-jwt";
+import { CartService } from "./domain/cart.service";
 
 @Injectable()
 export class AuthService {
@@ -16,7 +17,8 @@ export class AuthService {
     constructor(
         public http: HttpClient,
         public storageServer: StorageService,
-        private _platform: Platform
+        private _platform: Platform,
+        public cartService: CartService
         ){
 
             if(this._platform.is("cordova")){
@@ -42,6 +44,7 @@ export class AuthService {
         };
         
         this.storageServer.setLocalUser(user);
+        this.cartService.creatOrClearCart();
     }
 
     refreshToken() {
