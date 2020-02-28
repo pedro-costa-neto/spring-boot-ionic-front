@@ -22,8 +22,11 @@ export class ClienteService {
             }
     }
 
-    findbyEmail(email: String) {
+    findbyId(id: string) {
+        return this.http.get(`${this.basePath}/clientes/${id}`);
+    }
 
+    findbyEmail(email: String) {
         return this.http.get(`${this.basePath}/clientes/email?value=${email}`);
     }
 

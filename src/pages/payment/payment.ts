@@ -26,9 +26,9 @@ export class PaymentPage {
       });
   }
 
-  nextPage(item) {
+  nextPage() {
     this.pedido.pagamento = this.formGroup.value;
-    this.navCtrl.push('PaymentPage', {pedido: this.pedido});
+    this.navCtrl.setRoot('OrderConfirmationPage', {pedido: this.pedido});
   }
 
 }
